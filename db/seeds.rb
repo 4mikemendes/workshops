@@ -8,7 +8,7 @@
 require 'faker'
 
 10.times do
-  p workshop.create!(
+  p Workshop.create!(
     name: Faker::JapaneseMedia::DragonBall.character,
     workshop_description: Faker::Config.random = Random.new(10),
     location: Faker::Address.full_address,
@@ -16,3 +16,9 @@ require 'faker'
     )
 end
 
+10.times do
+  p Workshop.create!(
+    first_name: Faker::JapaneseMedia::DragonBall.character,
+    last_name: Faker::JapaneseMedia::DragonBall.character,
+    )
+end

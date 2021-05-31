@@ -5,6 +5,6 @@ class WorkshopsController < ApplicationController
   end
 
   def show
-    @student_workshop = Student_workshop.new
+    @workshop = Workshop.new
   end
 end
