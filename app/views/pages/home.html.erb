@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="d-flex flex-column my-5">
+    <h1>Welcome on AirWorkshops</h1>
+    <p class="p-3">AirWorkshops connects students who want to participate to a meaningfull workshop and teachers who want to share their knowledge</p>
+    <p><%= link_to "Find a workshop", user_session_path %></p>
+    <p><%= link_to "Propose a workshop", user_session_path %></p>
+  </div>
+</div>
