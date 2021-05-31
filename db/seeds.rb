@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+10.times do
+  p Workshop.create!(
+    name: Faker::JapaneseMedia::DragonBall.character,
+    workshop_description: Faker::Config.random = Random.new(10),
+    location: Faker::Address.full_address,
+    price: Faker::PhoneNumber.country_code,
+    )
+end
+
+10.times do
+  p Users.create!(
+    first_name: Faker::JapaneseMedia::DragonBall.character,
+    last_name: Faker::JapaneseMedia::DragonBall.character,
+    )
+end

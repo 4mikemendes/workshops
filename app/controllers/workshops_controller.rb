@@ -1,4 +1,13 @@
 class WorkshopsController < ApplicationController
+
+
+  def index
+    @workshop = Workshop.all
+  end
+
+  def show
+    @workshop = Workshop.new
+
   def new
     @workshop = Workshop.new
   end
@@ -14,5 +23,6 @@ class WorkshopsController < ApplicationController
 
   def list_params
     params.require(:workshop).permit(:name, :workshop_description, :location, :price, :starting_date, :ending_date)
+
   end
 end
