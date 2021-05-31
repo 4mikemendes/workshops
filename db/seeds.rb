@@ -17,7 +17,7 @@ require 'faker'
 end
 
 10.times do
-  p Workshop.create!(
+  p Users.create!(
     first_name: Faker::JapaneseMedia::DragonBall.character,
     last_name: Faker::JapaneseMedia::DragonBall.character,
     )
