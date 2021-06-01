@@ -37,7 +37,9 @@ class WorkshopsController < ApplicationController
     redirect_to workshops_path
   end
 
+  private
+
   def workshop_params
-    params.require(:workshop).permit(:name, :workshop_description, :location, :price, :starting_date, :ending_date, :photo)
+    params.require(:workshop).permit(:name, :workshop_description, :location, :price, :starting_date, :ending_date, photos: [])
   end
 end
