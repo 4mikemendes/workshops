@@ -3,16 +3,20 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Edit the workshop</h3>
-          <%= simple_form_for(@workshop) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :workshop_description %>
-            <%= f.input :location %>
-            <%= f.input :price %>
-            <%= f.input :starting_date %>
-            <%= f.input :ending_date %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.submit %>
-          <% end %>
+        <%= simple_form_for(@workshop) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :workshop_description %>
+        <%= f.input :location %>
+        <%= f.input :price %>
+        <%= f.input :starting_date %>
+        <%= f.input :ending_date %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :youtube_url %>
+        <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>
