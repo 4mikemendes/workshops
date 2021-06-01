@@ -1,10 +1,16 @@
-<h3><%= @workshop.name %></h3>
-<div class="cards">
-  <div class="card-white">
-    <p> <%= @workshop.workshop_description %> </p>
-    <p><%= "Location: #{@workshop.location}" %></p>
-    <p><%= "Price: #{@workshop.price}€" %></p>
-    <p><%= "Starting date: #{@workshop.starting_date}" %></p>
-    <p><%= "Ending date: #{@workshop.ending_date} "%></p>
-  </div>
-</div>
+<h1>Workhops</h1>
+
+<tbody>
+
+  <% @workshops.each do |workshop| %>
+  <ul>
+    <tr>
+      <li>
+        <td><%= link_to workshop.name, workshop %></td>
+        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+        <td><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </li>
+    </tr>
+  </ul>
+  <% end %>
+</tbody>
