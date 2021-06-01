@@ -10,6 +10,8 @@
             <%= f.input :price %>
             <%= f.input :starting_date %>
             <%= f.input :ending_date %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.input :youtube_url %>
             <%= f.submit %>
           <% end %>
       </div>
