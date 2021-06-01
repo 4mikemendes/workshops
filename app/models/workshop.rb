@@ -8,4 +8,6 @@ class Workshop < ApplicationRecord
   validates :price, presence: true
   validates :starting_date, presence: true
   validates :ending_date, presence: true
+  has_one_attached :photo
+  has_many_attached :photos
 end

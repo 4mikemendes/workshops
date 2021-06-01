@@ -1,13 +1,13 @@
 <h1>Workhops</h1>
 
 <% @workshops.each do |workshop| %>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 <%= link_to workshop.name, workshop %> >Card title</h5>
-        <p class="card-text"><%= link_to workshop.workshop_description, workshop %></p>
-        <a href="#" <%= link_to 'Edit', edit_workshop_path(workshop) %> </a>
-        <a href="#" <%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></a>
-      </div>
-    </div>
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 <%= link_to workshop.name, workshop %> >Card title</h5>
+    <p class="card-text"><%= link_to workshop.workshop_description, workshop %></p>
+    <%= link_to 'Edit', edit_workshop_path(workshop) %>
+    <%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
 <% end %>
