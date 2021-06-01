@@ -7,7 +7,4 @@ class User < ApplicationRecord
   has_many :student_worshops
   has_many :workshop
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-
 end
