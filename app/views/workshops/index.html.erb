@@ -3,16 +3,20 @@
 <tbody>
 
   <% @workshops.each do |workshop| %>
-  <ul>
-    <tr>
-      <li>
-        <td><%= link_to workshop.name, workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </li>
-    </tr>
-  </ul>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= workshop.name %> </h5>
+    <p class="card-text"><%= workshop.workshop_description %></p>
+    <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
+    <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
+    <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+  </div>
+</div>
+
   <% end %>
 </tbody>
+
 
 
