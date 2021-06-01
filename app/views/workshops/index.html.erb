@@ -10,8 +10,10 @@
     <h5 class="card-title"> <%= workshop.name %> </h5>
     <p class="card-text"><%= workshop.workshop_description %></p>
     <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
-    <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
-    <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+    <% if workshop.user == current_user %>
+      <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
+      <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+    <% end %>
   </div>
 </div>
 
