@@ -1,5 +1,4 @@
 class WorkshopsController < ApplicationController
-
   def index
     @workshops = Workshop.all
   end
@@ -22,15 +21,23 @@ class WorkshopsController < ApplicationController
     end
   end
 
+  def edit
+    @workshop = Workshop.find(params[:id])
+  end
+
+  def update
+    @workshop = Workshop.find(params[:id])
+    @workshop.update(workshop_params)
+    redirect_to workshop_path(@workshop)
+  end
+
   def destroy
     @workshop = Workshop.find(params[:id])
     @workshop.destroy
     redirect_to workshops_path
   end
 
-
   def workshop_params
     params.require(:workshop).permit(:name, :workshop_description, :location, :price, :starting_date, :ending_date)
-
   end
 end
