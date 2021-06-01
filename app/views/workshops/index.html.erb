@@ -1,9 +1,13 @@
-<div class="container">
-  <h1>List of horshops</h1>
-<div class="container mb-5">
-  <% @workshop.each do |list| %>
-<%= workshop.name %>
-<% end %>
-</div>
-</div>
+<h1>Workhops</h1>
+
+<ul>
+  <% @workshops.each do |workshop| %>
+  <li>
+    <%= workshop.name  %>
+  </li>
+  <% end %>
+</ul>
+
+
+
 
