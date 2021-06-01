@@ -22,6 +22,13 @@ class WorkshopsController < ApplicationController
     end
   end
 
+  def destroy
+    @workshop = Workshop.find(params[:id])
+    @workshop.destroy
+    redirect_to workshops_path
+  end
+
+
   def workshop_params
     params.require(:workshop).permit(:name, :workshop_description, :location, :price, :starting_date, :ending_date)
 

@@ -1,13 +1,19 @@
 <h1>Workhops</h1>
 
-<ul>
+<tbody>
+
   <% @workshops.each do |workshop| %>
-  <li>
-    <%= workshop.name  %>
-  </li>
+  <ul>
+    <tr>
+      <li>
+        <td><%= workshop.name %></td>
+        <td><%= link_to 'Show', workshop %></td>
+        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+        <td><%= link_to 'Destroy', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </li>
+    </tr>
+  </ul>
   <% end %>
-</ul>
-
-
-
+</tbody>
+</table>
 
