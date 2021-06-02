@@ -1,6 +1,7 @@
 class StudentWorkshopsController < ApplicationController
 
 
+
   def create
     @student_workshop = StudentWorkshop.new
     @workshop = Workshop.find(params[:workshop_id])
@@ -13,5 +14,4 @@ class StudentWorkshopsController < ApplicationController
       render :new
     end
   end
-
 end

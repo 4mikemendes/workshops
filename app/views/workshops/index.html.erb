@@ -1,11 +1,5 @@
 <% @workshops.each do |workshop| %>
 
-<div id="map"
-  style="width: 40%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
   <div class="card" style="width: 18rem;">
   <% workshop.photos.each do |photo| %>
     <%= cl_image_tag photo.key, class: "card-img-top" %>
@@ -22,3 +16,9 @@
   </div>
 <% end %>
 
+
+<div id="map"
+  style="width: 40%; height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

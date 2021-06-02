@@ -1,12 +1,36 @@
-<h3><%= @workshop.name %></h3>
-<p> <%= @workshop.workshop_description %> </p>
-<p><%= "Location: #{@workshop.location}" %></p>
-<p><%= "Price: #{@workshop.price}€" %></p>
-<p><%= "Starting date: #{@workshop.starting_date}" %></p>
-<p><%= "Ending date: #{@workshop.ending_date}"%></p>
+
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1))">
+  <div class="text-center text-white">
+    <h1><%= @workshop.name %></h1>
+  </div>
+</div>
+<div class="cover", data-aos="zoom-in", style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6))">
+  <h3><%= @workshop.name %></h3>
+  <p> <%= @workshop.workshop_description %> </p>
+</div>
+
+<div class="card-body">
+  <p><%= "Location: #{@workshop.location}" %></p>
+  <p><%= "Starting date: #{@workshop.starting_date}" %></p>
+  <p><%= "Ending date: #{@workshop.ending_date}"%></p>
+  <p><%= "Price: #{@workshop.price}€" %></p>
+  <% if @workshop.user == current_user %>
+      <ul>
+        <% @workshop.users.each do |user| %>
+            <li>
+              <%= user.email %>
+             </li>
+        <% end %>
+      </ul>
+    <%= link_to "request to book", workshop_student_workshops_path(@workshop), method: :post %>
+    <% else %>
+    <% end %>
+</div>
+
 
 <% @workshop.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <% if @workshop.youtube_url %>
 <iframe width="560" height="315" src="<%= @workshop.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -14,7 +38,3 @@
 
 <p><%= link_to "Back to workshops", workshops_path %></p>
 
-
-<%= simple_form_for [@workshop, @student_workshop] do |f| %>
-<%= f.submit %>
-<% end %>
