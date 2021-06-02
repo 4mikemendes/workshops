@@ -1,18 +1,21 @@
 <% @workshops.each do |workshop| %>
 
-<div class="card" style="width: 18rem;">
-  <%= cl_image_tag workshop.photos.first.key, class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"> <%= workshop.name %> </h5>
-    <p class="card-text"><%= workshop.workshop_description %></p>
-    <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
-    <% if workshop.user == current_user %>
-      <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
-      <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
-    <% end %>
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag workshop.photos.first.key, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"> <%= workshop.name %> </h5>
+      <p class="card-text"><%= workshop.workshop_description %></p>
+      <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
+      <% if workshop.user == current_user %>
+        <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
+        <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+      <% end %>
+    </div>
   </div>
-</div>
-
 <% end %>
 
-
+<div id="map"
+  style="width: 100%; height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

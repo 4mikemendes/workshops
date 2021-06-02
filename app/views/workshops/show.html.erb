@@ -1,10 +1,4 @@
-
-<div class="cover mb-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-  <div class="text-center text-white">
-    <h1><%= @workshop.name %></h1>
-  </div>
-</div>
-
+<h3><%= @workshop.name %></h3>
 <p> <%= @workshop.workshop_description %> </p>
 <p><%= "Location: #{@workshop.location}" %></p>
 <p><%= "Price: #{@workshop.price}€" %></p>
@@ -21,6 +15,6 @@
 <p><%= link_to "Back to workshops", workshops_path %></p>
 
 
- <%= simple_form_for [@workshop, @student_workshop] do |f| %>
-            <%= f.submit %>
-          <% end %>
+<%= simple_form_for [@workshop, @student_workshop] do |f| %>
+<%= f.submit %>
+<% end %>
