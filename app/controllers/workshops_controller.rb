@@ -44,6 +44,15 @@ class WorkshopsController < ApplicationController
     redirect_to workshops_path
   end
 
+  def book
+    @workshop = Workshop.find(params[:id])
+    if @workshop.student_workshop.where(email: params[:email]).count > 0
+      redirect_to workshops_path, alert: "THIS EMAIL HAS ALREADY BOOKED, YOU FOOL!"
+    else
+      StudentWorkshop.create!(name: params[:name], email: params[:email], event_id: @event.id)
+    end
+  end
+
   private
 
   def workshop_params
