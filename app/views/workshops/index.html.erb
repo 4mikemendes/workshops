@@ -4,11 +4,15 @@
   <%= cl_image_tag workshop.photos.first.key, class: "card-img-top" %>
   <div class="card-body">
     <h5 class="card-title"> <%= workshop.name %> </h5>
+    <br>
     <p class="card-text"><%= workshop.workshop_description %></p>
+    <div class="card-body">
     <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
     <% if workshop.user == current_user %>
+
       <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
       <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
+    </div>
     <% end %>
   </div>
 </div>
