@@ -1,6 +1,12 @@
 class WorkshopsController < ApplicationController
   def index
     @workshops = Workshop.all
+    @markers = @workshops.geocoded.map do |workshop|
+      {
+        lat: workshop.latitude,
+        lng: workshop.longitude
+      }
+    end
   end
 
   def show
