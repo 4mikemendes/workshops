@@ -11,6 +11,7 @@ class WorkshopsController < ApplicationController
 
   def show
     @workshop = Workshop.find(params[:id])
+    @student_workshop = StudentWorkshop.new
   end
 
   def new

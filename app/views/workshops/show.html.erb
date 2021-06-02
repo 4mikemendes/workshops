@@ -13,3 +13,8 @@
 <% end  %>
 
 <p><%= link_to "Back to workshops", workshops_path %></p>
+
+
+ <%= simple_form_for [@workshop, @student_workshop] do |f| %>
+            <%= f.submit %>
+          <% end %>
