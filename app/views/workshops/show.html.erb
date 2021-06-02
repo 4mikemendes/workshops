@@ -9,7 +9,7 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <% if @workshop.youtube_url %>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/44QzZV5cl7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="<%= @workshop.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <% end  %>
 
 <p><%= link_to "Back to workshops", workshops_path %></p>
