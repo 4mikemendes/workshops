@@ -1,4 +1,5 @@
 class WorkshopsController < ApplicationController
+
   def index
     @workshops = Workshop.all
     @markers = @workshops.geocoded.map do |workshop|
@@ -12,9 +13,11 @@ class WorkshopsController < ApplicationController
     @workshops = Workshop.global_search(name)
   end
   end
+
   def show
     @workshop = Workshop.find(params[:id])
     @student_workshop = StudentWorkshop.new
+    @review = Review.new(workshop: @workshop)
   end
 
   def new
