@@ -5,5 +5,4 @@ class StudentWorkshop < ApplicationRecord
 
   validates :workshop, :user, presence: true
 
-
 end
