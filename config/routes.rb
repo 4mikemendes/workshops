@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :student_workshops, only: [:update]
   resources :reviews, only: :destroy
+  get 'dashboard', to: 'pages#dashboard'
 end
