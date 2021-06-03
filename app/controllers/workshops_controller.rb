@@ -7,8 +7,11 @@ class WorkshopsController < ApplicationController
         lng: workshop.longitude
       }
     end
+  if params[ :query].present?
+    name = params[ :query]
+    @workshops = Workshop.global_search(name)
   end
-
+  end
   def show
     @workshop = Workshop.find(params[:id])
     @student_workshop = StudentWorkshop.new

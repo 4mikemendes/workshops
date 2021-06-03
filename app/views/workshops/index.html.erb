@@ -1,3 +1,11 @@
+<%= form_tag workshops_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a workshop"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 <% @workshops.each do |workshop| %>
 
   <div class="card" style="width: 18rem;">
