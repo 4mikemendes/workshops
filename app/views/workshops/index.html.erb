@@ -1,9 +1,19 @@
+<%= form_tag workshops_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a workshop"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div id="map"
   style="width: 40%; height: 600px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <div class="row">
+
 <% @workshops.each do |workshop| %>
 
   <div class="card m-2" style="width: 18rem;">

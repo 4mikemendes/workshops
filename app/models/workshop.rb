@@ -13,4 +13,11 @@ class Workshop < ApplicationRecord
   has_one_attached :photo
   has_many_attached :photos
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :workshop_description ],
+
+    using: {
+      tsearch: { prefix: true }
+    }
 end

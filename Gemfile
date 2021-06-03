@@ -7,6 +7,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg_search', '~> 2.3.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -29,7 +30,7 @@ gem 'cloudinary'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave'
 gem 'devise'
-
+gem 'youtube_addy'
 gem 'geocoder'
 gem 'yt'
 gem 'bootstrap-sass'
