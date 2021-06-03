@@ -11,4 +11,14 @@ class StudentWorkshopsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @student_workshop = StudentWorkshop.find(params[:id])
+    @student_workshop.update(student_workshop_params)
+    redirect_to workshop_path(@student_workshop.workshop), notice: "status updated"
+  end
+
+  def student_workshop_params
+    params.require(:student_workshop).permit(:status)
+  end
 end
