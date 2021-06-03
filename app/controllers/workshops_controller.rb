@@ -1,6 +1,7 @@
 class WorkshopsController < ApplicationController
 
   def index
+    @workshop = Workshop.new
     @workshops = Workshop.all
     @markers = @workshops.geocoded.map do |workshop|
       {
@@ -8,10 +9,11 @@ class WorkshopsController < ApplicationController
         lng: workshop.longitude
       }
     end
-  if params[ :query].present?
-    name = params[ :query]
-    @workshops = Workshop.global_search(name)
-  end
+    if params[ :query].present?
+      name = params[ :query]
+      @workshops = Workshop.global_search(name)
+    end
+
   end
 
   def show
