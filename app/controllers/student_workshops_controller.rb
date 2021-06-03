@@ -1,7 +1,4 @@
 class StudentWorkshopsController < ApplicationController
-
-
-
   def create
     @student_workshop = StudentWorkshop.new
     @workshop = Workshop.find(params[:workshop_id])
