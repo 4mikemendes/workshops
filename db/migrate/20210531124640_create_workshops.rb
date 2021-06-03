@@ -5,8 +5,8 @@ class CreateWorkshops < ActiveRecord::Migration[6.0]
       t.text :workshop_description
       t.string :location
       t.integer :price
-      t.date :starting_date
-      t.date :ending_date
+      t.date. :starting_date
+      t.date. :ending_date
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

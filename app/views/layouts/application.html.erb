@@ -12,14 +12,10 @@
   </head>
 
   <body>
+    <%# unless params[:controller] == "pages" && params[:action] == "home" %>
+    <%# end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <link href="node_modules/cloudinary-video-player/dist/cld-video-player.min.css" rel="stylesheet">
-
-    <script src="node_modules/lodash/lodash.js" type="text/javascript"></script>
-    <script src="node_modules/cloudinary-core/cloudinary-core.js" type="text/javascript"></script>
-    <script src="node_modules/cloudinary-video-player/dist/cld-video-player.min.js" type="text/javascript"></script>
-
     <%= yield %>
   </body>
 </html>

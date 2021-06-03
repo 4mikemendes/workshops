@@ -1,8 +1,13 @@
 <div class="container">
-  <div class="d-flex flex-column my-5">
-    <h1>Welcome on AirWorkshops</h1>
-    <p class="p-3">AirWorkshops connects students who want to participate to a meaningfull workshop and teachers who want to share their knowledge</p>
-    <p><%= link_to "Find a workshop", workshops_path %></p>
-    <p><%= link_to "Propose a workshop", new_workshop_path %></p>
+<div class="banner">
+
+    <h1>Find your workshop now</h1>
+  <p>Workshopy connects students who want to participate to a meaningfull workshop and teachers who want to share their knowledge</p>
+
+<!--     <a href="https://www.lewagon.com/" class="button-blue">Apply now!></a>
+ -->
+
+    <p><%= link_to "Find a workshop", workshops_path, class: "btn btn-primary" %></p>
+    <p<%#= link_to  "Propose a workshop", new_workshop_path, %></p>
   </div>
 </div>
