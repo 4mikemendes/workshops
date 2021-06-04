@@ -13,9 +13,9 @@
   <p><%= "Starting date: #{@workshop.starting_date}" %></p>
   <p><%= "Ending date: #{@workshop.ending_date}"%></p>
   <p><%= "Price: #{@workshop.price}€" %></p>
-  <% if @workshop.user != current_user %>
+  <% if @workshop.user != current_user && @current_registration.nil? %>
   <div><%= link_to "Book now", workshop_student_workshops_path(@workshop), method: :post , class: "btn btn-primary" %></div>
-  <% else %>
+  <% elsif @workshop.user == current_user %>
   <% @workshop.student_workshops.each do |booking| %>
   <%= booking.user.email  %>
   <%= simple_form_for booking do |f| %>
@@ -23,6 +23,8 @@
   <%= f.submit %>
   <% end  %>
   <% end  %>
+  <% else  %>
+  <%= @current_registration.status %>
   <% end %>
 </div>
 <div>
