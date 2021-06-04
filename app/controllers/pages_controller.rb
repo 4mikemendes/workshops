@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @workshops = Workshop.select(params[:user])
+    @workshops = current_user.workshops
+    @validated_workshops = current_user.student_workshops.where(status: "validated")
   end
 end

@@ -2,6 +2,7 @@
 .container {
   text-align: center;
   width: 60%;
+  color: white
 }
 .image-placeholder {
     background-color: #eee;
@@ -19,4 +20,10 @@
 
 .card-body{
   display: flex;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
 }

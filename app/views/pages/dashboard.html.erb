@@ -1,6 +1,8 @@
 <h1>Your dashboard</h1>
+<h3>Created workshops</h3>
+<div class="row">
   <% @workshops.each do |workshop| %>
-<% if workshop.user == current_user %>
+
   <div class="card m-2" style="width: 18rem;">
   <% workshop.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 200, width: 350, crop: :fill, class: "card-img-top" %>
@@ -11,8 +13,27 @@
       <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
         <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
         <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
-      <% end %>
+    </div>
+  </div>
+
+<% end %>
+</div>
+
+<h3>Upcoming workshops</h3>
+<div class="row">
+<% @validated_workshops.each do | validated_workshop| %>
+
+<div class="card m-2" style="width: 18rem;">
+  <% validated_workshop.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 200, width: 350, crop: :fill, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body flex-column">
+      <h5 class="card-title"> <%= workshop.name %> </h5>
+      <p class="card-text"><%= workshop.workshop_description %></p>
+      <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
+        <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
+        <small><%= link_to 'Delete', workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' } %></small>
     </div>
   </div>
 <% end %>
-
+</div>
