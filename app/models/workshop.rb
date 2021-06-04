@@ -15,7 +15,7 @@ class Workshop < ApplicationRecord
   has_many :reviews, dependent: :destroy
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :name, :workshop_description ],
+    against: [:name, :workshop_description],
 
     using: {
       tsearch: { prefix: true }

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :student_worshops
-  has_many :workshop
+  has_many :student_workshops
+  has_many :workshops
 
 end
