@@ -1,19 +1,19 @@
-<div class="container">
-  <%= form_tag workshops_path, method: :get do %>
-<%= text_field_tag :query,
-params[:query],
-class: "form-control",
-  placeholder: "Find a workshop"
-%>
-<%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="">
+  <div class="m-2 d-flex justify-content-between">
+  <%= form_tag workshops_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+    placeholder: "Find a workshop"%>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
-
-<div class="container">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Create new
-</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Create new
+    </button>
+  </div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -40,24 +40,23 @@ class: "form-control",
     </div>
   </div>
 </div>
-</div>
 
 <div id="map"
-style="width: 40%; height: 600px;"
+style="width: 30%; height: 600px;"
 data-markers="<%= @markers.to_json %>"
 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<div class="row">
+<div class="cards">
 
   <% @workshops.each do |workshop| %>
 
-  <div class="card m-2" style="width: 18rem;">
+  <div class="card m-2" style="widows:  18rem;">
     <% workshop.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 200, width: 350, crop: :fill, class: "card-img-top" %>
     <% end %>
     <div class="card-body flex-column">
       <h5 class="card-title"> <%= workshop.name %> </h5>
-      <p class="card-text"><%= workshop.workshop_description %></p>
+      <p class="card-text text-dark"><%= workshop.workshop_description %></p>
       <p><%= link_to "More details", workshop, class: "btn btn-primary" %></p>
       <% if workshop.user == current_user %>
       <small><%= link_to 'Edit', edit_workshop_path(workshop) %></small>
