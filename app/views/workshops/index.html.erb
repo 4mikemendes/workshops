@@ -1,4 +1,5 @@
-<%= form_tag workshops_path, method: :get do %>
+<div class="container">
+  <%= form_tag workshops_path, method: :get do %>
 <%= text_field_tag :query,
 params[:query],
 class: "form-control",
@@ -6,12 +7,13 @@ class: "form-control",
 %>
 <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+</div>
 
+<div class="container">
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Create new
 </button>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -37,6 +39,7 @@ class: "form-control",
      </div>
     </div>
   </div>
+</div>
 </div>
 
 <div id="map"

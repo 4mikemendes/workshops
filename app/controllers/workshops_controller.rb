@@ -20,6 +20,7 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.find(params[:id])
     @student_workshop = StudentWorkshop.new
     @review = Review.new(workshop: @workshop)
+    @current_registration = @workshop.student_workshops.find_by(user: current_user)
   end
 
   def new
@@ -52,14 +53,6 @@ class WorkshopsController < ApplicationController
     redirect_to workshops_path
   end
 
-  def book
-    @workshop = Workshop.find(params[:id])
-    if @workshop.student_workshop.where(email: params[:email]).count > 0
-      redirect_to workshops_path, alert: "You already booked this workshop"
-    else
-      StudentWorkshop.create!(name: params[:name], email: params[:email], event_id: @event.id)
-    end
-  end
 
   private
 
