@@ -5,4 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require "open-uri"
 
+
+10.times do
+  p User.create!(
+    email: Faker::Internet.email,
+    password: "123456",
+    first_name: Faker::TvShows::RickAndMorty.character,
+    last_name: Faker::TvShows::RickAndMorty.character,
+    description: Faker::TvShows::RickAndMorty.quote
+    )
+end
+
+10.times do
+  file = URI.open('https://source.unsplash.com/random')
+  p workshop = Workshop.create!(
+    user: User.first,
+    name: Faker::TvShows::RickAndMorty.character,
+    workshop_description: Faker::TvShows::BigBangTheory.quote,
+    location: Faker::Books::Dune.planet,
+    price: Faker::Alphanumeric.alpha(number: 10),
+    starting_date: Faker::Date.in_date_period,
+    ending_date: Faker::Date.in_date_period
+    )
+  workshop.photos.attach(io: file, filename: "name.jpg")
+end
