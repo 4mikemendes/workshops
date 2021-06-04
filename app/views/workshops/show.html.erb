@@ -1,14 +1,12 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1))">
+
+<div id="show-banner" class="cover mb-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.1)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png)">
   <div class="text-center text-white">
     <h1><%= @workshop.name %></h1>
   </div>
 </div>
-<div class="cover", data-aos="zoom-in", style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6))">
-</div>
 
 <div class="card-body flex-column">
-  <h3><%= @workshop.name %></h3>
-  <p> <%= @workshop.workshop_description %> </p>
+  <p><%= @workshop.workshop_description %> </p>
   <p><%= "Location: #{@workshop.location}" %></p>
   <p><%= "Starting date: #{@workshop.starting_date}" %></p>
   <p><%= "Ending date: #{@workshop.ending_date}"%></p>
@@ -21,16 +19,20 @@
   <%= simple_form_for booking do |f| %>
   <%= f.input :status, collection: ["accepted", "rejected"] %>
   <%= f.submit %>
-  <% end  %>
-  <% end  %>
-  <% else  %>
+  <% end %>
+  <% end %>
+  <% else %>
   <%= @current_registration.status %>
   <% end %>
 </div>
-<div>
+
+<div class="align-items-center justify-content-center">
   <% @workshop.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
+</div>
+
+<div class = "video">
   <% if @workshop.youtube_url %>
   <iframe width="560" height="315" src="<%= @workshop.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <% end  %>
@@ -68,4 +70,6 @@
 
 
 <p ><%=  link_to "Back to workshops", workshops_path %></p>
+<div class="container">
+
 
