@@ -20,49 +20,50 @@
   <%= booking.user.email  %>
   <%= simple_form_for booking do |f| %>
   <%= f.input :status, collection: ["accepted", "rejected"] %>
-  <%= f.submit %>
+  <%= f.submit  %>
   <% end  %>
   <% end  %>
   <% else  %>
-  <%= @current_registration.status %>
-  <% end %>
-</div>
-<div>
-  <% @workshop.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <% if @workshop.youtube_url %>
-  <iframe width="560" height="315" src="<%= @workshop.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <% end  %>
-</div>
-
-
-
-<hr class="my-5">
-<div class="row">
-  <div class="col-12 col-sm-6">
-    <h3>Reviews</h3>
-    <% if @workshop.reviews.empty? %>
-    <small><em class="text-muted">Be the first one to review this list</em></small>
-    <% end %>
-    <% @workshop.reviews.each do |review| %>
-    <div>
-      <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-      <p class="mb-0"><%= review.comment %></p>
-    </div>
-    <hr>
+  <div>
+  <span class="badge <%= @current_registration.badge_status %>"><%= @current_registration.status %><span>
     <% end %>
   </div>
-  <div class="col-12 col-sm-6">
-    <div class="bg-white rounded p-3">
-      <h5>Add your review</h5>
-      <%= simple_form_for [@workshop, @review] do |f| %>
-      <%= f.input :comment, placeholder: 'Add your review here...' %>
-      <%= f.submit class:'btn btn-primary' %>
+  <div>
+    <% @workshop.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+    <% if @workshop.youtube_url %>
+    <iframe width="560" height="315" src="<%= @workshop.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end  %>
+  </div>
+
+
+
+  <hr class="my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>Reviews</h3>
+      <% if @workshop.reviews.empty? %>
+      <small><em class="text-muted">Be the first one to review this list</em></small>
+      <% end %>
+      <% @workshop.reviews.each do |review| %>
+      <div>
+        <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+        <p class="mb-0"><%= review.comment %></p>
+      </div>
+      <hr>
       <% end %>
     </div>
+    <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3">
+        <h5>Add your review</h5>
+        <%= simple_form_for [@workshop, @review] do |f| %>
+        <%= f.input :comment, placeholder: 'Add your review here...' %>
+        <%= f.submit class:'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 
 
