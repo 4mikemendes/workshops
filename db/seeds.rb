@@ -9,7 +9,7 @@ require 'faker'
 require "open-uri"
 
 
-10.times do
+100.times do
   p User.create!(
     email: Faker::Internet.email,
     password: "123456",
@@ -19,7 +19,7 @@ require "open-uri"
     )
 end
 
-10.times do
+100.times do
   file = URI.open('https://source.unsplash.com/random')
   p workshop = Workshop.create!(
     user: User.first,
