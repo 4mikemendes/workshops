@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @workshops = current_user.workshops
-    @validated_workshops = current_user.student_workshops.where(status: "validated")
+    @validated_workshops = current_user.student_workshops.where(status: "accepted")
   end
 end
